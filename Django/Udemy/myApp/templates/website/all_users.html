@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block title %}
+Django & models
+{% endblock %}
+
+{% block content %}
+<div class="container">
+
+    <h1>Welcome to Django Level2</h1>
+    <h2>Accessing all the users</h2>
+    
+    {% if user_list %}
+    <table class="border border-3 border-success m-auto">
+        <thead>
+            <tr class="border border-3 border-success">
+                <th class="text-center">First Name</th>
+                <th class="text-center">Last name</th>
+                <th class="text-center">Emails</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in user_list %}
+            <tr  class="border border-3 border-success">
+                <td >{{ record.firstname}}</td>
+                <td>{{ record.lastname }}</td>
+                <td>{{ record.email }}</td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>There are no records in the database</p>
+    {% endif %}
+</div>
+{% endblock %}

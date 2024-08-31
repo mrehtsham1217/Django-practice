@@ -1,0 +1,25 @@
+{% comment %} {% extends "layout.html" %}
+{% load static %}
+
+{% block title %} 
+User Registration
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  {% if registered%} 
+  <h1>Thanks for Registration</h1>
+  {% else %}
+  <h2>Register here</h2>
+  <h3>Fill up the form</h3>
+  <form enctype="multipart/form" method="post">
+    {% csrf_token %}
+    {{ user_form.as_p}}
+    {{ profile_form.as_p }}
+    <input type="submit" value="Register" class="btn btn-primary">
+  </form> 
+  {% endif %}
+</div>
+{% endblock %} {% endcomment %}
+
+

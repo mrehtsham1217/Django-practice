@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+<!-- user_profile.html -->
+
+{% block content %}
+    <h1>Name:{{ user.username }}</h1>
+    <h3>Email:{{user.email}}</h3>
+
+    <!-- Add more user details here -->
+    <h2>Tweets:</h2>
+    {% if tweets %}
+        <ul>
+            {% for tweet in tweets %}
+                <li>
+                    <img src="{{ tweet.photo.url }}" alt="">
+                    <p>{{ tweet.tweet_text }}</p>
+                    <small>Posted on: {{ tweet.created_at }}</small>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>This user has not posted any tweets yet.</p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+Django and Build-in forms
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Welcome to Django Forms </h1>
+    <form method="POST">
+        {{form.as_p}}
+        {% csrf_token %}
+        <input type="submit" value="Submit" class="btn btn-primary">
+    </form>
+</div>
+    {% endblock %}

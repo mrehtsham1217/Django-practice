@@ -1,0 +1,35 @@
+Django-->web frame
+User-->Request-->Website-->Django--->check resource-->url resolver-->Where you want to go-->urls.py-->route redirect-->views.py-->directConnect-->db-->Response-->Django-->Frontend
+
+user-->Request-->urls.py--->views.py--->Database-->templates-->Request--->response back-->app
+
+Framework has name restriction but library has not
+
+# First step to create pythonn environment uisng uv pip python or conda
+        uv venv
+        python3 -m venv .venv
+# 2nd Step to create project
+        django-admin startproject myproject
+# You can do all settings for templates and static in project settings
+        'DIRS': ['templates'],
+         import os
+        STATIC_URL = 'static/'
+        STATICFILES_DIRS=[os.path.join(BASE_DIR,'static')]
+
+# for handling Images in Database
+
+        MEDIA_URL='/media/'
+        MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+
+# For installation of tailwind CSS
+        python -m ensurepip --upgrade pip
+        pip install 'django-tailwind[reload]'
+        python -m ensurepip --upgrade uv pip3
+        python manage.py tailwind install
+        python manage.py tailwind start
+
+For Database settings
+
+        python manage.py migrate
+        python manage.py changepassword
+        python manage.py makemigrations

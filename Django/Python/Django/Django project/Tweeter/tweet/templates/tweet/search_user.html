@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+<!-- search_results.html -->
+
+{% block content %}
+    <h1>Search Results</h1>
+    <p>Results for: "{{ query }}"</p>
+
+    <ul>
+        {% for user in users %}
+            <li>
+                <a href="{% url 'user_profile' user.username %}">{{ user.username }}</a>
+            </li>
+        {% empty %}
+            <li>No users found.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

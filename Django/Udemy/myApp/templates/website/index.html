@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block title %}
+Django & models
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    
+    <h1>Welcome to Django Level2</h1>
+    <h2>Accessing all the records</h2>
+    <h3>Url coding Templates</h3>
+    <a href="{%url 'users' %}">Other page</a>
+    <a href="{%url 'admin:index' %}">Admin page</a>
+
+    {% if access_record_list %}
+    <table class="border border-3 border-success m-auto">
+        <thead>
+            <tr class="border border-3 border-success">
+                <th>Site Name</th>
+                <th>Date Accessed</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in access_record_list %}
+            <tr  class="border border-3 border-success">
+                <td >{{ record.name }}</td>
+                <td>{{ record.date }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>There are no records in the database</p>
+    {% endif %}
+</div>
+{% endblock %}
